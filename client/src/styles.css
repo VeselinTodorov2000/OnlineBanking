@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #80BEF8;
+  opacity: 80%;
+}
+
+input {
+  background-color: #D9D9D9;
+  height: 40px;
+  font-size: 24px;
+}
+
+.classic-button {
+  background-color: #2B45CB;
+  height: 80px;
+  width: 250px;
+  font-family: Inconsolata;
+  font-size: 24px;
+  color: #FFFFFF;
+  border-radius: 5%;
+}
+
+.mistake {
+  font-family: Inconsolata;
+  font-size: 30px;
+  text-align: center;
+  color: red;
+  visibility: hidden;
+}
