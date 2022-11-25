@@ -1,0 +1,37 @@
+<div class="sending-money-modal-container">
+  <header class="section-header">
+    <p>Sending money</p>
+    <button (click)="closeModal()">X</button>
+  </header>
+
+  <div class="sending-money-form-container">
+    <form class="sending-money-form">
+      <div class="sending-money">
+        <div class="iban-amount">
+          <input type="text" placeholder="Receiver IBAN">
+          <input type="number" placeholder="Amount">
+        </div>
+        <div class="credit-payment-checkbox">
+          <input type="checkbox">
+          <p>Credit payment</p>
+        </div>
+      </div>
+      <div class="card-form" style="margin-top: 30px">
+        <div class="card-form-number-and-date">
+          <input type="text" placeholder="Card number">
+          <input type="month" placeholder="Expiry date">
+        </div>
+        <div class="card-form-cvv">
+          <input style="margin-top: 10px" type="number" placeholder="CVV">
+        </div>
+      </div>
+    </form>
+    <div class="sending-money-form-button">
+      <button class="classic-button">Send money</button>
+      <div class="sending-money-validations">
+        <p class="mistake" id=""><strong>Some validation</strong></p>
+      </div>
+    </div>
+  </div>
+
+</div>

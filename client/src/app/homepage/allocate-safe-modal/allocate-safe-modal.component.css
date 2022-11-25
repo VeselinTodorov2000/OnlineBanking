@@ -1,4 +1,4 @@
-.request-credit-modal-container {
+.allocate-to-safe-modal-container {
   margin-left: 20%;
   margin-top: 7%;
   width: 1200px;
@@ -28,35 +28,38 @@
   font-size: 22px;
 }
 
-/*
-*/
-
-.credit-request-form-container {
+.allocate-to-safe-form-container {
   display: flex;
   flex-direction: column;
   margin-left: 15%;
   margin-right: 15%;;
 }
 
-.credit-request-form {
+.allocate-to-safe-form {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-.credit-request-form > input {
+.allocate-to-safe-form > input {
   border-radius: 2%;
 }
 
-.credit-request-form-button {
+.allocate-to-safe-form-button {
   display: flex;
   flex-direction: row;
   padding-top: 60px;
   justify-content: space-between;
 }
 
-.credit-size-form {
+.allocate-to-safe {
   margin-top: 8%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.safe-details {
   display: flex;
   flex-direction: row;
   justify-content: space-around;

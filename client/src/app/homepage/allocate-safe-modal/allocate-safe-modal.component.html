@@ -1,0 +1,33 @@
+<div class="allocate-to-safe-modal-container">
+  <header class="section-header">
+    <p>Allocate to safe</p>
+    <button (click)="closeModal()">X</button>
+  </header>
+
+  <div class="allocate-to-safe-form-container">
+    <form class="allocate-to-safe-form">
+      <div class="allocate-to-safe">
+        <div class="safe-details">
+          <input type="text" placeholder="Safe ID">
+          <input type="number" placeholder="Amount">
+        </div>
+      </div>
+      <div class="card-form" style="margin-top: 30px">
+        <div class="card-form-number-and-date">
+          <input type="text" placeholder="Card number">
+          <input type="month" placeholder="Expiry date">
+        </div>
+        <div class="card-form-cvv">
+          <input style="margin-top: 10px" type="number" placeholder="CVV">
+        </div>
+      </div>
+    </form>
+    <div class="allocate-to-safe-form-button">
+      <button class="classic-button">Allocate</button>
+      <div class="allocate-to-safe-validations">
+        <p class="mistake" id=""><strong>Some validation</strong></p>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,19 +1,16 @@
-import {Component, OnInit} from '@angular/core';
-import {MatDialogRef} from "@angular/material/dialog";
+import {Component} from '@angular/core';
+import {MdbModalRef} from "mdb-angular-ui-kit/modal";
 
 @Component({
   selector: 'app-request-credit-modal',
   templateUrl: './request-credit-modal.component.html',
   styleUrls: ['./request-credit-modal.component.css']
 })
-export class RequestCreditModalComponent implements OnInit {
-  constructor(public dialogRef: MatDialogRef<RequestCreditModalComponent>) {
-  }
-
-  ngOnInit(): void {
+export class RequestCreditModalComponent {
+  constructor(public modalRef: MdbModalRef<RequestCreditModalComponent>) {
   }
 
   closeModal() {
-    this.dialogRef.close();
+    this.modalRef.close();
   }
 }

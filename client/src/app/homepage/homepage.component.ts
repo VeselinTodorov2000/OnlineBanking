@@ -1,5 +1,9 @@
 import {Component} from '@angular/core';
 import {DummyTableData} from "./dummyTableData";
+import {RequestCreditModalComponent} from "./request-credit-modal/request-credit-modal.component";
+import {MdbModalRef, MdbModalService} from "mdb-angular-ui-kit/modal";
+import {SendingMoneyModalComponent} from "./sending-money-modal/sending-money-modal.component";
+import {AllocateSafeModalComponent} from "./allocate-safe-modal/allocate-safe-modal.component";
 
 @Component({
   selector: 'app-homepage',
@@ -13,7 +17,20 @@ export class HomepageComponent {
   debit: number = 10.25;
   iban: string = 'BG000 000 001';
 
-  openRequestModal() {
+  modalRef: MdbModalRef<RequestCreditModalComponent> | null = null;
 
+  constructor(private modalService: MdbModalService) {
+  }
+
+  openRequestModal() {
+    this.modalRef = this.modalService.open(RequestCreditModalComponent);
+  }
+
+  openSendMoneyModal() {
+    this.modalRef = this.modalService.open(SendingMoneyModalComponent);
+  }
+
+  openAllocateToSafeModal() {
+    this.modalRef = this.modalService.open(AllocateSafeModalComponent)
   }
 }
