@@ -1,0 +1,33 @@
+.standart-header {
+  background-color: #FFFFFF;
+  opacity: 80%;
+  display: flex;
+  flex-direction: row;
+}
+
+.app-name-text {
+  justify-content: left;
+}
+
+.app-name-text > p {
+  font-family: Inconsolata;
+  font-size: 36px;
+  text-align: left;
+  padding-left: 40px;
+}
+
+.app-nav-bar {
+
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  justify-content: right;
+}
+
+.app-nav-bar > p {
+  font-family: Inconsolata;
+  font-size: 24px;
+  text-align: right;
+  padding-top: 20px;
+  padding-left: 40px;
+}

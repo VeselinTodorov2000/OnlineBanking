@@ -7,12 +7,18 @@ import {HttpClientModule} from "@angular/common/http";
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {APP_BASE_HREF} from "@angular/common";
+import { HomepageComponent } from './homepage/homepage.component';
+import { StandartHeaderComponent } from './standart-header/standart-header.component';
+import { RequestCreditModalComponent } from './homepage/request-credit-modal/request-credit-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
+    HomepageComponent,
+    StandartHeaderComponent,
+    RequestCreditModalComponent,
   ],
   imports: [
     BrowserModule,

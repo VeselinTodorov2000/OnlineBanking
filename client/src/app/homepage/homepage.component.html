@@ -1,0 +1,52 @@
+<app-standart-header></app-standart-header>
+<div class="upper-part-container">
+  <div class="available-money-container">
+    <header class="section-header">
+      <p>Available money</p>
+    </header>
+    <div class="available-money-slots">
+      <div class="slot">
+        <p>Debit: </p><p class="amount">{{debit}} USD </p><p>{{iban}}</p>
+      </div>
+      <div class="slot">
+        <p>Credit: </p><p class="amount">{{debit}} USD </p><p>{{iban}}</p>
+      </div>
+      <div class="slot">
+        <p>Safes: </p><p class="amount">{{debit}} USD </p><p>{{iban}}</p>
+      </div>
+      <div class="slot">
+        <p>Balance: </p><p class="amount">{{debit}} USD </p><p>{{iban}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="buttons-container">
+    <header class="section-header">
+      <p>Operations</p>
+    </header>
+    <div class="buttons-container-slots">
+      <button class="request-credit-button" (click)="openRequestModal()">Request credit</button>
+      <button class="send-money-button">Send money</button>
+      <button class="allocate-to-safe-button">Allocate to safe</button>
+    </div>
+  </div>
+</div>
+
+<div class="transactions-container">
+  <header class="section-header">
+    <p>Transactions</p>
+  </header>
+  <div class="transactions-table-container">
+    <table style="width: 100%; border:2px solid black">
+      <tr>
+        <th style="width: 30%; background-color: #000101; opacity: 80%; color: white">Debit</th>
+        <th style="width: 40%; background-color: #000101; opacity: 80%; color: white">Receiver</th>
+        <th style="width: 30%; background-color: #000101; opacity: 80%; color: white">Date</th>
+      </tr>
+      <tr *ngFor="let row of rows">
+        <td>{{row.debit}} USD</td>
+        <td>{{row.receiver}}</td>
+        <td>{{row.date}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
