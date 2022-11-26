@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {DummyTableData} from "./dummyTableData";
+import {DummyTableData} from "../models/dummyTableData";
 import {RequestCreditModalComponent} from "./request-credit-modal/request-credit-modal.component";
 import {MdbModalRef, MdbModalService} from "mdb-angular-ui-kit/modal";
 import {SendingMoneyModalComponent} from "./sending-money-modal/sending-money-modal.component";

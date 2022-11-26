@@ -1,0 +1,18 @@
+<app-standart-header></app-standart-header>
+<div class="safes-container">
+  <header class="section-header">
+    <p>Safes</p>
+  </header>
+  <div class="former">
+    <div class="safes-details" *ngFor="let safe of safes">
+      <div class="safe">
+        <p>{{safe.safeName}}</p>
+        <input type="text" placeholder="{{safe.debit}} USD" readonly="true">
+        <button class="classic-button" style="width: 90px; height: 40px">Open</button>
+      </div>
+    </div>
+  </div>
+  <div class="create-safe-button">
+    <button class="classic-button">Create new safe</button>
+  </div>
+</div>

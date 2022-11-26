@@ -1,3 +1,47 @@
 <div class="transactions-container">
   <app-standart-header></app-standart-header>
+<!--  search -->
+  <div class="transactions-search-view">
+    <header class="section-header">
+      <p>Transaction search</p>
+    </header>
+    <div class="transaction-search-form">
+        <div class="search-form">
+          <input type="text" placeholder="Receiver IBAN">
+          <div class="dates-form">
+            <h2 style="font-family: Inconsolata">Date from: </h2><input type="date" placeholder="Date from">
+            <h2 style="font-family: Inconsolata">Date to: </h2><input type="date" placeholder="Date to">
+          </div>
+          <div class="positive-debit">
+            <input type="checkbox">
+            <p>Only positive debit</p>
+          </div>
+          <div class="submit-button">
+            <button class="classic-button">Search</button>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="transactions-search-result-view">
+    <header class="section-header">
+      <p>Transactions</p>
+    </header>
+    <div class="transactions-table-container">
+      <table style="width: 100%; border:2px solid black">
+        <tr>
+          <th style="width: 20%; background-color: #000101; opacity: 80%; color: white">Debit</th>
+          <th style="width: 30%; background-color: #000101; opacity: 80%; color: white">Receiver</th>
+          <th style="width: 30%; background-color: #000101; opacity: 80%; color: white">Reason</th>
+          <th style="width: 20%; background-color: #000101; opacity: 80%; color: white">Date</th>
+        </tr>
+        <tr *ngFor="let row of rows">
+          <td>{{row.debit}} USD</td>
+          <td>{{row.receiver}}</td>
+          <td>Reason #1</td>
+          <td>{{row.date}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
 </div>
+

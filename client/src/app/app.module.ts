@@ -14,6 +14,7 @@ import {MdbModalModule} from "mdb-angular-ui-kit/modal";
 import { SendingMoneyModalComponent } from './homepage/sending-money-modal/sending-money-modal.component';
 import { AllocateSafeModalComponent } from './homepage/allocate-safe-modal/allocate-safe-modal.component';
 import { TransactionsComponent } from './transactions/transactions.component';
+import { SafesComponent } from './safes/safes.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { TransactionsComponent } from './transactions/transactions.component';
     SendingMoneyModalComponent,
     AllocateSafeModalComponent,
     TransactionsComponent,
+    SafesComponent,
   ],
   imports: [
     BrowserModule,
