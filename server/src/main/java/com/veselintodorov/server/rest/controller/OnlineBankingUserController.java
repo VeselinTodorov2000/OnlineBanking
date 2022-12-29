@@ -9,10 +9,14 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(path = "/user")
+@RequestMapping(path = "/api/user")
 public class OnlineBankingUserController {
+    private final OnlineBankingUserService onlineBankingUserService;
+
     @Autowired
-    private OnlineBankingUserService onlineBankingUserService;
+    public OnlineBankingUserController(OnlineBankingUserService onlineBankingUserService) {
+        this.onlineBankingUserService = onlineBankingUserService;
+    }
 
     @GetMapping(path = "/all")
     public List<OnlineBankingUser> getAllUsers() {
@@ -24,7 +28,7 @@ public class OnlineBankingUserController {
         return onlineBankingUserService.getUserById(id);
     }
 
-    @GetMapping(path = "/all/by/username={username}&password={password}")
+    @GetMapping(path = "/all/username={username}&password={password}")
     public Optional<OnlineBankingUser> getUserByUsernameAndPassword(@PathVariable("username") String username,
                                                                     @PathVariable("password") String password) {
         return onlineBankingUserService.getUserByUsernameAndPassword(username, password);

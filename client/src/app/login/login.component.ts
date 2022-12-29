@@ -7,9 +7,13 @@ import {Router} from "@angular/router";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  constructor(private router: Router){ }
+  username?: string | null;
+  password?: string | null;
 
-  goToRegister(): void {
-    this.router.navigate(['/register']);
+  signIn() {
+    console.log(document.getElementById('username')?.getRootNode());
+    console.log(document.getElementById('password')?.getRootNode());
   }
+
+
 }

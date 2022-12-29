@@ -42,7 +42,7 @@ public class OnlineBankingUserServiceImpl implements OnlineBankingUserService {
     @Override
     public boolean updateUser(OnlineBankingUser onlineBankingUser) {
         Optional<OnlineBankingUser> userToUpdate = onlineBankingUserDao.findById(onlineBankingUser.getId());
-        if (userToUpdate.isPresent()) {
+        if (!userToUpdate.isPresent()) {
             return false;
         }
         OnlineBankingUser bankingUser = userToUpdate.get();

@@ -15,6 +15,7 @@ import { SendingMoneyModalComponent } from './homepage/sending-money-modal/sendi
 import { AllocateSafeModalComponent } from './homepage/allocate-safe-modal/allocate-safe-modal.component';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { SafesComponent } from './safes/safes.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -29,12 +30,13 @@ import { SafesComponent } from './safes/safes.component';
     TransactionsComponent,
     SafesComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    MdbModalModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        MdbModalModule,
+        FormsModule,
+    ],
   providers: [{provide: APP_BASE_HREF, useValue: '/'}],
   bootstrap: [AppComponent]
 })

@@ -24,7 +24,7 @@ input {
   font-size: 30px;
   text-align: center;
   color: red;
-  /*visibility: hidden;*/
+  visibility: hidden;
 }
 
 html, body { height: 100%; }
