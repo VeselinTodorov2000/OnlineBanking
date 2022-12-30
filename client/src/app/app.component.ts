@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
 import {Router} from "@angular/router";
+import {OnlinebankinguserModel} from "./models/onlinebankinguser.model";
+import {OnlineBankingUserService} from "./services/OnlineBankingUser.service";
 
 @Component({
   selector: 'app-root',
@@ -7,7 +9,9 @@ import {Router} from "@angular/router";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private router: Router) {}
+  currentUser?: OnlinebankinguserModel;
+
+  constructor(private router: Router, private userService: OnlineBankingUserService) {}
 
   newChange(): void {
     this.router.navigateByUrl('register');
