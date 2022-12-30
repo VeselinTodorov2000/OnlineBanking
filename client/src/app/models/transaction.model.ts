@@ -3,4 +3,5 @@ export class TransactionModel {
   funds?: number;
   issueDate?: Date;
   receiverIban?: string;
+  reason?: string;
 }

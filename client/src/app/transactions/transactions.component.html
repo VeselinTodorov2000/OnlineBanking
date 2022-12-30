@@ -7,17 +7,17 @@
     </header>
     <div class="transaction-search-form">
         <div class="search-form">
-          <input type="text" placeholder="Receiver IBAN">
+          <input type="text" placeholder="Receiver IBAN" [(ngModel)]="receiverIbanCriteria">
           <div class="dates-form">
-            <h2 style="font-family: Inconsolata">Date from: </h2><input type="date" placeholder="Date from">
-            <h2 style="font-family: Inconsolata">Date to: </h2><input type="date" placeholder="Date to">
+            <h2 style="font-family: Inconsolata">Date from: </h2><input [(ngModel)]="dateFromCriteria" type="date" placeholder="Date from">
+            <h2 style="font-family: Inconsolata">Date to: </h2><input [(ngModel)]="dateToCriteria" type="date" placeholder="Date to">
           </div>
           <div class="positive-debit">
-            <input type="checkbox">
+            <input type="checkbox" [(ngModel)]="onlyPositiveDebit">
             <p>Only positive debit</p>
           </div>
           <div class="submit-button">
-            <button class="classic-button">Search</button>
+            <button class="classic-button" (click)="performSearch()"> Search</button>
           </div>
         </div>
     </div>
@@ -34,12 +34,12 @@
           <th style="width: 30%; background-color: #000101; opacity: 80%; color: white">Reason</th>
           <th style="width: 20%; background-color: #000101; opacity: 80%; color: white">Date</th>
         </tr>
-<!--        <tr *ngFor="let row of rows">-->
-<!--          <td>{{row.debit}} USD</td>-->
-<!--          <td>{{row.receiver}}</td>-->
-<!--          <td>Reason #1</td>-->
-<!--          <td>{{row.date}}</td>-->
-<!--        </tr>-->
+        <tr *ngFor="let transaction of transactions">
+          <td>{{transaction.funds}} USD</td>
+          <td>{{transaction.receiverIban}}</td>
+          <td>{{transaction.reason}}</td>
+          <td>{{transaction.issueDate}}</td>
+        </tr>
       </table>
     </div>
   </div>

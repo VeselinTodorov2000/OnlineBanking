@@ -19,18 +19,22 @@ public class Transaction {
 
     private String receiverIban;
 
+    private String reason;
+
     public Transaction() {
-        this(0L, null, null, null);
+        this(0L, null, null, null, null);
     }
 
     public Transaction(@JsonProperty("id") Long id,
                        @JsonProperty("funds") BigDecimal funds,
                        @JsonProperty("issueDate")LocalDate issueDate,
-                       @JsonProperty("receiverIban") String receiverIban) {
+                       @JsonProperty("receiverIban") String receiverIban,
+                       @JsonProperty("reason") String reason) {
         this.id = id;
         this.funds = funds;
         this.issueDate = issueDate;
         this.receiverIban = receiverIban;
+        this.reason = reason;
     }
 
     public Long getId() {
@@ -63,5 +67,13 @@ public class Transaction {
 
     public void setReceiverIban(String receiverIban) {
         this.receiverIban = receiverIban;
+    }
+
+    public String getReason() {
+        return reason;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
     }
 }
