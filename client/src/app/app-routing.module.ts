@@ -21,8 +21,4 @@ const routes: Routes = [
 export class AppRoutingModule {
   constructor(private router: Router) {
   }
-
-  transactionsRedirect() {
-    this.router.navigate(['/transactions']);
-  }
 }

@@ -9,11 +9,12 @@
   justify-content: left;
 }
 
-.app-name-text > p {
+.app-name-text > a {
   font-family: Inconsolata;
   font-size: 36px;
   text-align: left;
   padding-left: 40px;
+  text-decoration: none;
 }
 
 .app-nav-bar {
