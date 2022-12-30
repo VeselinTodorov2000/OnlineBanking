@@ -1,24 +1,30 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {RequestCreditModalComponent} from "./request-credit-modal/request-credit-modal.component";
 import {MdbModalRef, MdbModalService} from "mdb-angular-ui-kit/modal";
 import {SendingMoneyModalComponent} from "./sending-money-modal/sending-money-modal.component";
 import {AllocateSafeModalComponent} from "./allocate-safe-modal/allocate-safe-modal.component";
+import {OnlineBankingUserService} from "../services/OnlineBankingUser.service";
+import {OnlinebankinguserModel} from "../models/onlinebankinguser.model";
+import {HttpErrorResponse} from "@angular/common/http";
+import {SafeModel} from "../models/safe.model";
+import {TransactionModel} from "../models/transaction.model";
+
 
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.css']
 })
-export class HomepageComponent {
-  // rows: DummyTableData[] = [{"debit": -200, "receiver": "GB000 003 100", "date": "21.10.2019"},
-  //   {"debit": 150, "receiver": "LV000 604 250", "date": "20.10.2019"},
-  //   {"debit": -400, "receiver": "GB000 003 100", "date": "18.10.2019"}];
-  debit: number = 10.25;
-  iban: string = 'BG000 000 001';
+export class HomepageComponent implements OnInit {
+  currentUser?: OnlinebankinguserModel;
+  transactions?: [TransactionModel];
+  creditAmount?: number;
+  safesAmount?: number;
+  balance?: number;
 
   modalRef: MdbModalRef<RequestCreditModalComponent> | null = null;
 
-  constructor(private modalService: MdbModalService) {
+  constructor(private modalService: MdbModalService, private userService: OnlineBankingUserService) {
   }
 
   openRequestModal() {
@@ -31,5 +37,46 @@ export class HomepageComponent {
 
   openAllocateToSafeModal() {
     this.modalRef = this.modalService.open(AllocateSafeModalComponent)
+  }
+
+  ngOnInit(): void {
+    this.getCurrentUser();
+  }
+
+  private getCurrentUser() {
+    this.userService.getAdminUser().subscribe(
+      (response: OnlinebankinguserModel) => {
+        this.currentUser = response;
+        this.transactions = this.currentUser?.account?.transactions?.sort(
+          function (obj1, obj2): any {
+            obj2.issueDate?.valueOf()! - obj1.issueDate?.valueOf()!
+          });
+        this.creditAmount = this.sumCredit(response.account?.transactions!);
+        this.safesAmount = this.sumSafes(response.account?.safes!);
+        this.balance = this.safesAmount! + this.currentUser.account?.funds! + this.creditAmount;
+        console.log(this.currentUser);
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
+
+  private sumSafes(safeModels: [SafeModel]) {
+    let sum = 0;
+    for (var safe of safeModels) {
+      sum = sum + safe.funds!;
+    }
+    return sum;
+  }
+
+  private sumCredit(transactionModels: [TransactionModel]) {
+    let sum = 0
+    for(var transaction of transactionModels) {
+      if(transaction.receiverIban == "CREDIT") {
+        sum = sum + transaction.funds!;
+      }
+    }
+    return sum*-1;
   }
 }

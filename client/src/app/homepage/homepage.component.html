@@ -6,16 +6,16 @@
     </header>
     <div class="available-money-slots">
       <div class="slot">
-        <p>Debit: </p><p class="amount">{{debit}} USD </p><p>{{iban}}</p>
+        <p>Debit: </p><p class="amount">{{currentUser?.account?.funds}} USD </p><p>{{currentUser?.account?.iban}}</p>
       </div>
       <div class="slot">
-        <p>Credit: </p><p class="amount">{{debit}} USD </p><p>{{iban}}</p>
+        <p>Credit: </p><p class="amount">{{creditAmount}} USD </p><p>{{currentUser?.account?.iban}}</p>
       </div>
       <div class="slot">
-        <p>Safes: </p><p class="amount">{{debit}} USD </p><p>{{iban}}</p>
+        <p>Safes: </p><p class="amount">{{safesAmount}} USD </p><p>{{currentUser?.account?.iban}}</p>
       </div>
       <div class="slot">
-        <p>Balance: </p><p class="amount">{{debit}} USD </p><p>{{iban}}</p>
+        <p>Balance: </p><p class="amount">{{balance}} USD </p><p>{{currentUser?.account?.iban}}</p>
       </div>
     </div>
   </div>
@@ -42,11 +42,11 @@
         <th style="width: 40%; background-color: #000101; opacity: 80%; color: white">Receiver</th>
         <th style="width: 30%; background-color: #000101; opacity: 80%; color: white">Date</th>
       </tr>
-<!--      <tr *ngFor="let row of rows">-->
-<!--        <td>{{row.debit}} USD</td>-->
-<!--        <td>{{row.receiver}}</td>-->
-<!--        <td>{{row.date}}</td>-->
-<!--      </tr>-->
+      <tr *ngFor="let transaction of transactions">
+        <td>{{transaction.funds}} USD</td>
+        <td>{{transaction.receiverIban}}</td>
+        <td>{{transaction.issueDate}}</td>
+      </tr>
     </table>
   </div>
 </div>
