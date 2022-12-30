@@ -3,6 +3,7 @@ import {OnlineBankingUserService} from "../services/OnlineBankingUser.service";
 import {OnlinebankinguserModel} from "../models/onlinebankinguser.model";
 import {HttpErrorResponse} from "@angular/common/http";
 import {currentUser, setCurrentUser} from "../globals/globals";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent {
   username?: string | null;
   password?: string | null;
 
-  constructor(private userService: OnlineBankingUserService) {
+  constructor(private userService: OnlineBankingUserService, private router: Router) {
   }
 
   signIn() {
@@ -32,6 +33,7 @@ export class LoginComponent {
         });
         if (users.length != 0) {
           setCurrentUser(users[0]);
+          this.router.navigate(['/home']);
           console.log(currentUser);
         } else {
 

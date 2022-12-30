@@ -3,8 +3,8 @@
     <p>Online banking system</p>
   </div>
   <div class="app-nav-bar">
-    <p>Home</p>
-    <p>Transactions</p>
-    <p>Safes</p>
+    <a [routerLink]="['/home']" routerLinkActive="true">Home</a>
+    <a [routerLink]="['/transactions']" routerLinkActive="true">Transactions</a>
+    <a [routerLink]="['/safes']" routerLinkActive="true">Safes</a>
   </div>
 </header>

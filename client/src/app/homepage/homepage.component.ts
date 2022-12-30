@@ -8,6 +8,7 @@ import {OnlinebankinguserModel} from "../models/onlinebankinguser.model";
 import {HttpErrorResponse} from "@angular/common/http";
 import {SafeModel} from "../models/safe.model";
 import {TransactionModel} from "../models/transaction.model";
+import {currentUser} from "../globals/globals";
 
 
 @Component({
@@ -40,26 +41,15 @@ export class HomepageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getCurrentUser();
-  }
+    this.currentUser = currentUser;
+    this.creditAmount = this.sumCredit(this.currentUser.account?.transactions!);
+    this.safesAmount = this.sumSafes(this.currentUser.account?.safes!);
+    this.balance = this.safesAmount! + this.currentUser.account?.funds! + this.creditAmount;
+    this.transactions = this.currentUser?.account?.transactions?.sort(
+      function (obj1, obj2): any {
+        obj2.issueDate?.valueOf()! <= obj1.issueDate?.valueOf()!
+      });
 
-  private getCurrentUser() {
-    this.userService.getAdminUser().subscribe(
-      (response: OnlinebankinguserModel) => {
-        this.currentUser = response;
-        this.transactions = this.currentUser?.account?.transactions?.sort(
-          function (obj1, obj2): any {
-            obj2.issueDate?.valueOf()! - obj1.issueDate?.valueOf()!
-          });
-        this.creditAmount = this.sumCredit(response.account?.transactions!);
-        this.safesAmount = this.sumSafes(response.account?.safes!);
-        this.balance = this.safesAmount! + this.currentUser.account?.funds! + this.creditAmount;
-        console.log(this.currentUser);
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    );
   }
 
   private sumSafes(safeModels: [SafeModel]) {

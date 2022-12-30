@@ -24,10 +24,10 @@
   justify-content: right;
 }
 
-.app-nav-bar > p {
+.app-nav-bar > a {
   font-family: Inconsolata;
   font-size: 24px;
   text-align: right;
-  padding-top: 20px;
+  padding-top: 40px;
   padding-left: 40px;
 }
