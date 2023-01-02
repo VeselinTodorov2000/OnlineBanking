@@ -30,9 +30,8 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
-    public boolean createTransaction(Transaction transaction) {
-        transactionDao.save(transaction);
-        return true;
+    public Transaction createTransaction(Transaction transaction) {
+        return transactionDao.save(transaction);
     }
 
     @Override

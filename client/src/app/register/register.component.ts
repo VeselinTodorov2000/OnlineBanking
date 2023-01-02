@@ -14,18 +14,20 @@ export class RegisterComponent {
 
 
   createNewUser() {
-    if(this.password !== this.cpassword) {
+    if (this.password !== this.cpassword) {
       alert("Password and Confirm password should match")
     } else {
-      // newUser = {
-      //   username: this.username,
-      //   password: this.password,
-      //   country: this.country,
-      //   account: {
-
+      let newUser = {
+        username: this.username,
+        password: this.password,
+        country: this.country,
+        account: {
+          funds: 0,
+          transaction: [],
+          safes: [],
+          debitCard: null
         }
       };
-    // }
-
-  // }
+    }
+  }
 }

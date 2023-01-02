@@ -31,7 +31,6 @@ export class OpenSafeModalComponent {
       }
       this.userService.updateUser(currentUser).subscribe(
         (response: boolean) => {
-          console.log(response);
         });
 
       setSafeToOpen(null);

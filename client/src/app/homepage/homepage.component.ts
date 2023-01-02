@@ -30,6 +30,7 @@ export class HomepageComponent implements OnInit {
 
   openRequestModal() {
     this.modalRef = this.modalService.open(RequestCreditModalComponent);
+    this.ngOnInit();
   }
 
   openSendMoneyModal() {

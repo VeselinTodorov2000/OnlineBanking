@@ -3,6 +3,7 @@ import {OnlinebankinguserModel} from "../models/onlinebankinguser.model";
 import {HttpErrorResponse} from "@angular/common/http";
 import {OnlineBankingUserService} from "../services/OnlineBankingUser.service";
 import {TransactionModel} from "../models/transaction.model";
+import {currentUser} from "../globals/globals";
 
 @Component({
   selector: 'app-transactions',
@@ -10,7 +11,6 @@ import {TransactionModel} from "../models/transaction.model";
   styleUrls: ['./transactions.component.css']
 })
 export class TransactionsComponent implements OnInit {
-  currentUser?: OnlinebankinguserModel;
   transactions?: TransactionModel[];
 
   //criteria
@@ -20,22 +20,9 @@ export class TransactionsComponent implements OnInit {
   onlyPositiveDebit? : boolean;
 
   ngOnInit(): void {
-    this.getCurrentUser();
   }
 
   constructor(private userService: OnlineBankingUserService) {
-  }
-
-  private getCurrentUser() {
-    this.userService.getAdminUser().subscribe(
-      (response: OnlinebankinguserModel) => {
-        this.currentUser = response;
-        console.log(this.currentUser);
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    );
   }
 
   performSearch() {
@@ -46,7 +33,7 @@ export class TransactionsComponent implements OnInit {
       positive: this.onlyPositiveDebit
     };
 
-    this.transactions = this.currentUser?.account?.transactions?.filter(function (item) {
+    this.transactions = currentUser?.account?.transactions?.filter(function (item) {
       if (item.receiverIban === undefined || item.receiverIban != filter.receiverIban) {
         return false;
       }

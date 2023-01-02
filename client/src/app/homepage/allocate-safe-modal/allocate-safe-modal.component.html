@@ -8,22 +8,22 @@
     <form class="allocate-to-safe-form">
       <div class="allocate-to-safe">
         <div class="safe-details">
-          <input type="text" placeholder="Safe ID">
-          <input type="number" placeholder="Amount">
+          <input [(ngModel)]="this.safeName" [ngModelOptions]="{standalone:true}" type="text" placeholder="Safe name">
+          <input [(ngModel)]="this.amount" [ngModelOptions]="{standalone:true}" type="number" placeholder="Amount">
         </div>
       </div>
       <div class="card-form" style="margin-top: 30px">
         <div class="card-form-number-and-date">
-          <input type="text" placeholder="Card number">
-          <input type="month" placeholder="Expiry date">
+          <input [(ngModel)]="this.cardNumber" [ngModelOptions]="{standalone:true}" type="text" placeholder="Card number">
+          <input [(ngModel)]="this.expiryDate" [ngModelOptions]="{standalone:true}" type="month" placeholder="Expiry date">
         </div>
         <div class="card-form-cvv">
-          <input style="margin-top: 10px" type="number" placeholder="CVV">
+          <input [(ngModel)]="this.cvv" [ngModelOptions]="{standalone:true}" style="margin-top: 10px" type="number" placeholder="CVV">
         </div>
       </div>
     </form>
     <div class="allocate-to-safe-form-button">
-      <button class="classic-button">Allocate</button>
+      <button class="classic-button" (click)="allocateToSafe()">Allocate</button>
       <div class="allocate-to-safe-validations">
         <p class="mistake" id=""><strong>Some validation</strong></p>
       </div>

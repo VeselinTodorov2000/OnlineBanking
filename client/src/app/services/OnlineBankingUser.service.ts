@@ -4,6 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {OnlinebankinguserModel} from "../models/onlinebankinguser.model";
 import {SafeModel} from "../models/safe.model";
+import {TransactionModel} from "../models/transaction.model";
 
 @Injectable({providedIn: 'root'})
 export class OnlineBankingUserService {
@@ -38,5 +39,13 @@ export class OnlineBankingUserService {
 
   public addSafe(newSafe: SafeModel): Observable<SafeModel> {
     return this.http.post<SafeModel>(`${this.apiServerUrl}/safe`, newSafe);
+  }
+
+  public updateSafe(updatedSafe: SafeModel): Observable<boolean> {
+    return this.http.put<boolean>(`${this.apiServerUrl}/safe`, updatedSafe);
+  }
+
+  public addTransaction(newTransaction: TransactionModel): Observable<TransactionModel> {
+    return this.http.post<TransactionModel>(`${this.apiServerUrl}/transaction`, newTransaction);
   }
 }

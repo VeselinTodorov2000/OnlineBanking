@@ -29,7 +29,7 @@ public class TransactionController {
     }
 
     @PostMapping
-    boolean createTransaction(@RequestBody Transaction transaction) {
+    Transaction createTransaction(@RequestBody Transaction transaction) {
         return transactionService.createTransaction(transaction);
     }
 

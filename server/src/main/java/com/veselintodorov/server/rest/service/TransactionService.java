@@ -11,7 +11,7 @@ public interface TransactionService {
 
     Optional<Transaction> getTransactionById(Long id);
 
-    boolean createTransaction(Transaction transaction);
+    Transaction createTransaction(Transaction transaction);
 
     boolean updateTransaction(Transaction transaction);
 
