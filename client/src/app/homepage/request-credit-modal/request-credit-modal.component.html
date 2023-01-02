@@ -7,21 +7,21 @@
   <div class="credit-request-form-container">
     <form class="credit-request-form">
       <div class="credit-size-form">
-        <input type="number" placeholder="Credit size">
-        <input type="number" placeholder="Years">
+        <input [(ngModel)]="this.creditSize" [ngModelOptions]="{standalone:true}" type="number" placeholder="Credit size">
+        <input [(ngModel)]="this.years" [ngModelOptions]="{standalone:true}" type="number" placeholder="Years">
       </div>
       <div class="card-form" style="margin-top: 30px">
-        <div class="card-form-number-and-date">
-          <input type="text" placeholder="Card number">
-          <input type="month" placeholder="Expiry date">
-        </div>
-        <div class="card-form-cvv">
-          <input style="margin-top: 10px" type="number" placeholder="CVV">
-        </div>
+        <form class="card-form-number-and-date">
+          <input [(ngModel)]="this.cardNumber" [ngModelOptions]="{standalone:true}" type="text" placeholder="Card number">
+          <input [(ngModel)]="this.expiryDate" [ngModelOptions]="{standalone:true}" type="month" placeholder="Expiry date">
+        </form>
+        <form class="card-form-cvv">
+          <input [(ngModel)]="this.cvv" [ngModelOptions]="{standalone:true}" style="margin-top: 10px" type="number" placeholder="CVV">
+        </form>
       </div>
     </form>
     <div class="credit-request-form-button">
-      <button class="classic-button">Request credit</button>
+      <button class="classic-button" (click)="makeRequest()">Request credit</button>
       <div class="credit-request-form-validations">
         <p class="mistake" id="user exists"><strong>Some validation</strong></p>
       </div>

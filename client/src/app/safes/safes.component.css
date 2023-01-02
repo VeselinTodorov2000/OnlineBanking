@@ -19,6 +19,12 @@
   padding-left: 15px;
 }
 
+.former {
+  margin: 2%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 .safes-details {
   margin: 2%;
   display: flex;
@@ -27,18 +33,25 @@
 }
 
 .safe {
-  width: 250px;
-  height: 300px;
+  width: 280px;
+  height: 150px;
   border-radius: 2%;
   background-color: green;
   opacity: 90%;
 }
 
 .safe > p {
+  margin-left: 5%;
   font-family: Inconsolata;
   font-size: 28px;
   color: #FFFFFF;
 }
 
 .safe > input {
+  margin-left: 5%;
+  width: 150px;
+}
+
+.create-safe-button {
+  margin-left: 40%;
 }

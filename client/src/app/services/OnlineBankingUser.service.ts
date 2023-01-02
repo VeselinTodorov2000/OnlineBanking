@@ -22,4 +22,8 @@ export class OnlineBankingUserService {
   public addUser(newUser: OnlinebankinguserModel): Observable<OnlinebankinguserModel> {
     return this.http.post<OnlinebankinguserModel>(`${this.apiServerUrl}/employee/add`, newUser);
   }
+
+  public updateUser(updatedUser: OnlinebankinguserModel): Observable<OnlinebankinguserModel> {
+    return this.http.put<OnlinebankinguserModel>(`${this.apiServerUrl}/employee/add`, updatedUser);
+  }
 }

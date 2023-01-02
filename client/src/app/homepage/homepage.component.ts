@@ -8,7 +8,7 @@ import {OnlinebankinguserModel} from "../models/onlinebankinguser.model";
 import {HttpErrorResponse} from "@angular/common/http";
 import {SafeModel} from "../models/safe.model";
 import {TransactionModel} from "../models/transaction.model";
-import {currentUser} from "../globals/globals";
+import {currentUser, setCurrentUser} from "../globals/globals";
 
 
 @Component({
@@ -49,7 +49,6 @@ export class HomepageComponent implements OnInit {
       function (obj1, obj2): any {
         obj2.issueDate?.valueOf()! <= obj1.issueDate?.valueOf()!
       });
-
   }
 
   private sumSafes(safeModels: [SafeModel]) {
