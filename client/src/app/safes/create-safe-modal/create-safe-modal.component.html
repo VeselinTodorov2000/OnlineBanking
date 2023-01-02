@@ -5,16 +5,16 @@
   </header>
 
   <div class="allocate-to-safe-form-container">
-    <form class="allocate-to-safe-form">
+    <div class="allocate-to-safe-form">
       <div class="allocate-to-safe">
-        <div class="safe-details">
-          <input type="text" placeholder="Safe name">
-          <input type="text" placeholder="Safe keygen">
-        </div>
+        <form class="safe-details">
+          <input [(ngModel)]="safeName" [ngModelOptions]="{standalone:true}" type="text" placeholder="Safe name">
+          <input [(ngModel)]="safeKeygen" [ngModelOptions]="{standalone:true}" type="text" placeholder="Safe keygen">
+        </form>
       </div>
-    </form>
+    </div>
     <div class="allocate-to-safe-form-button">
-      <button class="classic-button">Create safe</button>
+      <button class="classic-button" (click)="createSafe()">Create safe</button>
       <div class="allocate-to-safe-validations">
         <p class="mistake" id=""><strong>Some validation</strong></p>
       </div>

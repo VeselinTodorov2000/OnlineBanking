@@ -2,6 +2,7 @@ package com.veselintodorov.server.rest.service.impl;
 
 import com.veselintodorov.server.entity.OnlineBankingUser;
 import com.veselintodorov.server.rest.repository.OnlineBankingUserDao;
+import com.veselintodorov.server.rest.service.AccountService;
 import com.veselintodorov.server.rest.service.OnlineBankingUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -48,6 +49,12 @@ public class OnlineBankingUserServiceImpl implements OnlineBankingUserService {
         OnlineBankingUser bankingUser = userToUpdate.get();
         bankingUser.setUsername(onlineBankingUser.getUsername());
         bankingUser.setPassword(onlineBankingUser.getPassword());
+        bankingUser.getAccount().setIban(onlineBankingUser.getAccount().getIban());
+        bankingUser.getAccount().setFunds(onlineBankingUser.getAccount().getFunds());
+        bankingUser.getAccount().setSafes(onlineBankingUser.getAccount().getSafes());
+        bankingUser.getAccount().setDebitCard(onlineBankingUser.getAccount().getDebitCard());
+        bankingUser.getAccount().setTransactions(onlineBankingUser.getAccount().getTransactions());
+        bankingUser.setCountry(onlineBankingUser.getCountry());
         onlineBankingUserDao.save(bankingUser);
         return true;
     }

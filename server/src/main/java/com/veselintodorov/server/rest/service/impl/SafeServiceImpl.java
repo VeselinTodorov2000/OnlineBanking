@@ -44,9 +44,8 @@ public class SafeServiceImpl implements SafeService {
     }
 
     @Override
-    public boolean createSafe(Safe safe) {
-        safeDao.save(safe);
-        return true;
+    public Safe createSafe(Safe safe) {
+        return safeDao.save(safe);
     }
 
     @Override

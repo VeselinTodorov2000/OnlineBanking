@@ -34,7 +34,6 @@ export class LoginComponent {
         if (users.length != 0) {
           setCurrentUser(users[0]);
           this.router.navigate(['/home']);
-          console.log(currentUser);
         } else {
 
           console.log("no user found");

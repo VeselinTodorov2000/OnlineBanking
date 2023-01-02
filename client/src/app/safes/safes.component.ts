@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {currentUser} from "../globals/globals";
+import {currentUser, setSafeToOpen} from "../globals/globals";
 import {OnlinebankinguserModel} from "../models/onlinebankinguser.model";
 import {MdbModalRef, MdbModalService} from "mdb-angular-ui-kit/modal";
 import {OnlineBankingUserService} from "../services/OnlineBankingUser.service";
@@ -29,6 +29,7 @@ export class SafesComponent implements OnInit {
   }
 
   openOpenSafeModel(safe: SafeModel) {
+    setSafeToOpen(safe);
     this.modalRef = this.modalService.open(OpenSafeModalComponent);
   }
 }

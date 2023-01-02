@@ -14,7 +14,7 @@ public interface SafeService {
 
     Optional<Safe> getSafeById(Long id);
 
-    boolean createSafe(Safe safe);
+    Safe createSafe(Safe safe);
 
     boolean updateSafe(Safe safe);
 

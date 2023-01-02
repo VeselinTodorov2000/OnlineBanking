@@ -13,4 +13,6 @@ export class SendingMoneyModalComponent {
   closeModal() {
     this.modalRef.close();
   }
+
+
 }

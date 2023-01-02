@@ -30,7 +30,7 @@ public class SafeController {
     }
 
     @PostMapping
-    public boolean createSafe(@RequestBody Safe safe) {
+    public Safe createSafe(@RequestBody Safe safe) {
         return safeService.createSafe(safe);
     }
 
