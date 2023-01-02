@@ -16,6 +16,8 @@ import { AllocateSafeModalComponent } from './homepage/allocate-safe-modal/alloc
 import { TransactionsComponent } from './transactions/transactions.component';
 import { SafesComponent } from './safes/safes.component';
 import {FormsModule} from "@angular/forms";
+import { CreateSafeModalComponent } from './safes/create-safe-modal/create-safe-modal.component';
+import { OpenSafeModalComponent } from './safes/open-safe-modal/open-safe-modal.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import {FormsModule} from "@angular/forms";
     AllocateSafeModalComponent,
     TransactionsComponent,
     SafesComponent,
+    CreateSafeModalComponent,
+    OpenSafeModalComponent,
   ],
     imports: [
         BrowserModule,

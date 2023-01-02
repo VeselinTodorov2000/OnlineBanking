@@ -8,11 +8,11 @@
       <div class="safe">
         <p>{{safe.safeName}}</p>
         <input type="text" placeholder="{{safe.funds}} USD" readonly="true">
-        <button class="classic-button" style="width: 90px; height: 40px">Open</button>
+        <button class="classic-button" (click)="openOpenSafeModel(safe)" style="width: 90px; height: 40px">Open</button>
       </div>
     </div>
   </div>
   <div class="create-safe-button">
-    <button class="classic-button">Create new safe</button>
+    <button class="classic-button" (click)="openCreateSafeModal()">Create new safe</button>
   </div>
 </div>
