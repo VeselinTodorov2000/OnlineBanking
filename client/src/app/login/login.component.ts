@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {OnlineBankingUserService} from "../services/OnlineBankingUser.service";
 import {OnlinebankinguserModel} from "../models/onlinebankinguser.model";
 import {HttpErrorResponse} from "@angular/common/http";
-import {currentUser, setCurrentUser} from "../globals/globals";
+import {setCurrentUser} from "../globals/globals";
 import {Router} from "@angular/router";
 
 @Component({

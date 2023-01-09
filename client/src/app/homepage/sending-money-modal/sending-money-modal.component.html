@@ -8,26 +8,29 @@
     <form class="sending-money-form">
       <div class="sending-money">
         <div class="iban-amount">
-          <input type="text" placeholder="Receiver IBAN">
-          <input type="number" placeholder="Amount">
+          <input [(ngModel)]="this.receiverIban" [ngModelOptions]="{standalone:true}" *ngIf="!creditPayment" type="text" placeholder="Receiver IBAN">
+          <input [(ngModel)]="this.amount" [ngModelOptions]="{standalone:true}" type="number" placeholder="Amount">
         </div>
+        <input [(ngModel)]="this.reason" [ngModelOptions]="{standalone:true}" *ngIf="!creditPayment"
+               style="margin-top: 40px; width: 820px" type="text" placeholder="Reason">
         <div class="credit-payment-checkbox">
-          <input type="checkbox">
+          <input [(ngModel)]="this.creditPayment" [ngModelOptions]="{standalone:true}" type="checkbox">
           <p>Credit payment</p>
         </div>
       </div>
       <div class="card-form" style="margin-top: 30px">
         <div class="card-form-number-and-date">
-          <input type="text" placeholder="Card number">
-          <input type="month" placeholder="Expiry date">
+          <input [(ngModel)]="this.cardNumber" [ngModelOptions]="{standalone:true}" type="text" placeholder="Card number">
+          <input [(ngModel)]="this.expiryDate" [ngModelOptions]="{standalone:true}" type="month" placeholder="Expiry date">
         </div>
         <div class="card-form-cvv">
-          <input style="margin-top: 10px" type="number" placeholder="CVV">
+          <input [(ngModel)]="this.cvv" [ngModelOptions]="{standalone:true}"
+                 style="margin-top: 10px" type="number" placeholder="CVV">
         </div>
       </div>
     </form>
     <div class="sending-money-form-button">
-      <button class="classic-button">Send money</button>
+      <button (click)="sendMoney()" class="classic-button">Send money</button>
       <div class="sending-money-validations">
         <p class="mistake" id=""><strong>Some validation</strong></p>
       </div>
