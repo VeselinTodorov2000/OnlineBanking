@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {MdbModalRef} from "mdb-angular-ui-kit/modal";
 import {OnlineBankingUserService} from "../../services/OnlineBankingUser.service";
-import {currentUser, safeToOpen, setCurrentUser, setSafeToOpen} from "../../globals/globals";
+import {currentUser, safeToOpen, setSafeToOpen} from "../../globals/globals";
 
 @Component({
   selector: 'app-open-safe-modal',

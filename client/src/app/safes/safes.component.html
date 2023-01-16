@@ -7,7 +7,7 @@
     <div class="safes-details" *ngFor="let safe of currentUser?.account?.safes!">
       <div class="safe">
         <p>{{safe.safeName}}</p>
-        <input type="text" placeholder="{{safe.funds}} USD" readonly="true">
+        <input type="text" value="{{safe.funds}} USD" readonly="true">
         <button class="classic-button" (click)="openOpenSafeModel(safe)" style="width: 90px; height: 40px">Open</button>
       </div>
     </div>

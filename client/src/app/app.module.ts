@@ -11,13 +11,13 @@ import {HomepageComponent} from './homepage/homepage.component';
 import {StandartHeaderComponent} from './standart-header/standart-header.component';
 import {RequestCreditModalComponent} from './homepage/request-credit-modal/request-credit-modal.component';
 import {MdbModalModule} from "mdb-angular-ui-kit/modal";
-import { SendingMoneyModalComponent } from './homepage/sending-money-modal/sending-money-modal.component';
-import { AllocateSafeModalComponent } from './homepage/allocate-safe-modal/allocate-safe-modal.component';
-import { TransactionsComponent } from './transactions/transactions.component';
-import { SafesComponent } from './safes/safes.component';
+import {SendingMoneyModalComponent} from './homepage/sending-money-modal/sending-money-modal.component';
+import {AllocateSafeModalComponent} from './homepage/allocate-safe-modal/allocate-safe-modal.component';
+import {TransactionsComponent} from './transactions/transactions.component';
+import {SafesComponent} from './safes/safes.component';
 import {FormsModule} from "@angular/forms";
-import { CreateSafeModalComponent } from './safes/create-safe-modal/create-safe-modal.component';
-import { OpenSafeModalComponent } from './safes/open-safe-modal/open-safe-modal.component';
+import {CreateSafeModalComponent} from './safes/create-safe-modal/create-safe-modal.component';
+import {OpenSafeModalComponent} from './safes/open-safe-modal/open-safe-modal.component';
 
 @NgModule({
   declarations: [

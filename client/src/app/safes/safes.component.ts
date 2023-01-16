@@ -3,7 +3,6 @@ import {currentUser, setSafeToOpen} from "../globals/globals";
 import {OnlinebankinguserModel} from "../models/onlinebankinguser.model";
 import {MdbModalRef, MdbModalService} from "mdb-angular-ui-kit/modal";
 import {OnlineBankingUserService} from "../services/OnlineBankingUser.service";
-import {RequestCreditModalComponent} from "../homepage/request-credit-modal/request-credit-modal.component";
 import {CreateSafeModalComponent} from "./create-safe-modal/create-safe-modal.component";
 import {OpenSafeModalComponent} from "./open-safe-modal/open-safe-modal.component";
 import {SafeModel} from "../models/safe.model";

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SafesComponent } from './safes.component';
+import {SafesComponent} from './safes.component';
 
 describe('SafesComponent', () => {
   let component: SafesComponent;

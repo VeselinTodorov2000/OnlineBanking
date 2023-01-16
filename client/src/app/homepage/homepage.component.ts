@@ -5,10 +5,9 @@ import {SendingMoneyModalComponent} from "./sending-money-modal/sending-money-mo
 import {AllocateSafeModalComponent} from "./allocate-safe-modal/allocate-safe-modal.component";
 import {OnlineBankingUserService} from "../services/OnlineBankingUser.service";
 import {OnlinebankinguserModel} from "../models/onlinebankinguser.model";
-import {HttpErrorResponse} from "@angular/common/http";
 import {SafeModel} from "../models/safe.model";
 import {TransactionModel} from "../models/transaction.model";
-import {currentUser, setCurrentUser} from "../globals/globals";
+import {currentUser} from "../globals/globals";
 import {Title} from "@angular/platform-browser";
 
 
@@ -66,11 +65,11 @@ export class HomepageComponent implements OnInit {
 
   private sumCredit(transactionModels: [TransactionModel]) {
     let sum = 0
-    for(var transaction of transactionModels) {
-      if(transaction.receiverIban == "CREDIT") {
+    for (var transaction of transactionModels) {
+      if (transaction.receiverIban == "CREDIT") {
         sum = sum + transaction.funds!;
       }
     }
-    return sum*-1;
+    return sum * -1;
   }
 }

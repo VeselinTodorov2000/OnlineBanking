@@ -2,10 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {MdbModalRef} from "mdb-angular-ui-kit/modal";
 import {OnlinebankinguserModel} from "../../models/onlinebankinguser.model";
 import {SafeModel} from "../../models/safe.model";
-import {SafesComponent} from "../safes.component";
 import {currentUser, setCurrentUser} from "../../globals/globals";
 import {OnlineBankingUserService} from "../../services/OnlineBankingUser.service";
-import {range} from "rxjs";
 
 @Component({
   selector: 'app-create-safe-modal',

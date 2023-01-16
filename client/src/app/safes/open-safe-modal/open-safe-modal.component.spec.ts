@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { OpenSafeModalComponent } from './open-safe-modal.component';
+import {OpenSafeModalComponent} from './open-safe-modal.component';
 
 describe('OpenSafeModalComponent', () => {
   let component: OpenSafeModalComponent;

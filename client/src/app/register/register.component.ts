@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {OnlinebankinguserModel} from "../models/onlinebankinguser.model";
-import {setCurrentUser} from "../globals/globals";
 import {HttpErrorResponse} from "@angular/common/http";
 import {OnlineBankingUserService} from "../services/OnlineBankingUser.service";
 import {Router} from "@angular/router";

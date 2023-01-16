@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { StandartHeaderComponent } from './standart-header.component';
+import {StandartHeaderComponent} from './standart-header.component';
 
 describe('StandartHeaderComponent', () => {
   let component: StandartHeaderComponent;

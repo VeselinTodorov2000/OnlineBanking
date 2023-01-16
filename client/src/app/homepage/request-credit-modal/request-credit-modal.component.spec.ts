@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { RequestCreditModalComponent } from './request-credit-modal.component';
+import {RequestCreditModalComponent} from './request-credit-modal.component';
 
 describe('RequestCreditModalComponent', () => {
   let component: RequestCreditModalComponent;

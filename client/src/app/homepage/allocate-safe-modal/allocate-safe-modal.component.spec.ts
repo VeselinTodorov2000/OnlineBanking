@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AllocateSafeModalComponent } from './allocate-safe-modal.component';
+import {AllocateSafeModalComponent} from './allocate-safe-modal.component';
 
 describe('AllocateSafeModalComponent', () => {
   let component: AllocateSafeModalComponent;

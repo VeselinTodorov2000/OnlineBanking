@@ -1,6 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {OnlinebankinguserModel} from "../models/onlinebankinguser.model";
-import {HttpErrorResponse} from "@angular/common/http";
 import {OnlineBankingUserService} from "../services/OnlineBankingUser.service";
 import {TransactionModel} from "../models/transaction.model";
 import {currentUser} from "../globals/globals";

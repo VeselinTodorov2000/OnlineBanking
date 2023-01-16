@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CreateSafeModalComponent } from './create-safe-modal.component';
+import {CreateSafeModalComponent} from './create-safe-modal.component';
 
 describe('CreateSafeModalComponent', () => {
   let component: CreateSafeModalComponent;

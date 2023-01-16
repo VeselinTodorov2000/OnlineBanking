@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SendingMoneyModalComponent } from './sending-money-modal.component';
+import {SendingMoneyModalComponent} from './sending-money-modal.component';
 
 describe('SendingMoneyModalComponent', () => {
   let component: SendingMoneyModalComponent;
