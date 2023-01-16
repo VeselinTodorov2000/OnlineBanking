@@ -26,6 +26,11 @@ export class OpenSafeModalComponent {
         if(safeToOpen.safeName == currentUser.account?.safes![i].safeName) {
           currentUser.account!.funds! += currentUser.account!.safes![i].funds!;
           currentUser.account!.safes![i].funds! = 0;
+          // @ts-ignore
+          this.userService.deleteSafe(currentUser.account!.safes[i]!.id).subscribe(
+            (response: boolean) => {
+            }
+          )
           currentUser.account?.safes?.splice(i,1);
         }
       }
@@ -35,5 +40,8 @@ export class OpenSafeModalComponent {
 
       setSafeToOpen(null);
     }
+
+
+    this.closeModal();
   }
 }

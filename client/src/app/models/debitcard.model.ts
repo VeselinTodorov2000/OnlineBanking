@@ -1,6 +1,6 @@
 export class DebitCardModel {
   id?: number;
   cardNumber?: string;
-  expiryDate?: Date;
+  expiryDate!: Date;
   cvv?: number;
 }

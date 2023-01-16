@@ -48,4 +48,8 @@ export class OnlineBankingUserService {
   public addTransaction(newTransaction: TransactionModel): Observable<TransactionModel> {
     return this.http.post<TransactionModel>(`${this.apiServerUrl}/transaction`, newTransaction);
   }
+
+  public deleteSafe(id: number): Observable<boolean>{
+    return this.http.delete<boolean>(`${this.apiServerUrl}/safe/` + id)
+  }
 }

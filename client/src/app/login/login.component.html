@@ -12,7 +12,7 @@
       <button class="classic-button" [routerLink]="['/register']">Sign up</button>
     </div>
     <div class="login-form-validations">
-      <p class="mistake" id="incorrect username"><strong>Incorrect username or password</strong></p>
+      <p class="mistake" id="incorrect username" *ngIf="incorrectUser"><strong>Incorrect username or password</strong></p>
     </div>
   </div>
 </div>

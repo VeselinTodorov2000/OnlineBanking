@@ -4,6 +4,7 @@ import {OnlinebankinguserModel} from "../models/onlinebankinguser.model";
 import {HttpErrorResponse} from "@angular/common/http";
 import {setCurrentUser} from "../globals/globals";
 import {Router} from "@angular/router";
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-login',
@@ -13,8 +14,11 @@ import {Router} from "@angular/router";
 export class LoginComponent {
   username?: string | null;
   password?: string | null;
+  incorrectUser!: boolean;
 
-  constructor(private userService: OnlineBankingUserService, private router: Router) {
+  constructor(private userService: OnlineBankingUserService, private router: Router, private titleService: Title) {
+    titleService.setTitle("Login");
+    this.incorrectUser = false;
   }
 
   signIn() {
@@ -35,8 +39,7 @@ export class LoginComponent {
           setCurrentUser(users[0]);
           this.router.navigate(['/home']);
         } else {
-
-          console.log("no user found");
+          this.incorrectUser = true;
         }
       },
       (error: HttpErrorResponse) => {

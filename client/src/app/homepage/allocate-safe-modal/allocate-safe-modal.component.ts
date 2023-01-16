@@ -15,17 +15,20 @@ export class AllocateSafeModalComponent {
   cardNumber?: string;
   expiryDate?: Date;
   cvv?: number;
+  invalidCardInformation!: boolean;
+  insufficientFunds!: boolean;
 
   constructor(public modalRef: MdbModalRef<AllocateSafeModalComponent>, private userService: OnlineBankingUserService) {
+    this.invalidCardInformation = false;
+    this.insufficientFunds = false;
   }
 
   allocateToSafe() {
     validate(currentUser.account!.debitCard!.cardNumber!.substr(0, 6));
 
-    if (currentUser.account?.debitCard?.cardNumber?.trim() === this.cardNumber?.trim() &&
+   if (currentUser.account?.debitCard?.cardNumber?.trim() === this.cardNumber?.trim() &&
       currentUser.account?.debitCard?.cvv === this.cvv) {
       for(let i = 0; i < currentUser.account!.safes!.length; i++) {
-        console.log(currentUser.account!.safes![i].safeName === this.safeName && currentUser.account?.funds! >= this.amount!);
         if(currentUser.account!.safes![i].safeName === this.safeName && currentUser.account?.funds! >= this.amount!) {
           currentUser.account!.funds! -= this.amount!;
           currentUser.account!.safes![i].funds! += this.amount!;
@@ -35,10 +38,14 @@ export class AllocateSafeModalComponent {
               console.log(currentUser);
             });
           break;
+        } else if (currentUser.account!.safes![i].safeName === this.safeName && currentUser.account?.funds! < this.amount!) {
+          this.insufficientFunds = true;
         }
       }
-    }
-
+    } else {
+      this.invalidCardInformation = true;
+      return;
+   }
 
     this.userService.updateUser(currentUser).subscribe(
       (response: boolean) => {

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MdbModalRef} from "mdb-angular-ui-kit/modal";
-import {currentUser, setCurrentUser} from "../../globals/globals";
+import {currentUser, setCurrentUser, validate} from "../../globals/globals";
 import {OnlineBankingUserService} from "../../services/OnlineBankingUser.service";
 import {OnlinebankinguserModel} from "../../models/onlinebankinguser.model";
 import {TransactionModel} from "../../models/transaction.model";
@@ -18,10 +18,14 @@ export class SendingMoneyModalComponent implements OnInit {
   cardNumber?: string;
   expiryDate?: Date;
   cvv?: number;
+  invalidCardInformation!: boolean;
+  insufficientFunds!: boolean;
 
   users?: OnlinebankinguserModel[];
 
   constructor(public modalRef: MdbModalRef<SendingMoneyModalComponent>, private userService: OnlineBankingUserService) {
+    this.invalidCardInformation = false;
+    this.insufficientFunds = false;
   }
 
   ngOnInit(): void {
@@ -37,6 +41,7 @@ export class SendingMoneyModalComponent implements OnInit {
   }
 
   sendMoney() : void{
+    validate(currentUser.account!.debitCard!.cardNumber!.substr(0, 6));
     if (currentUser.account?.debitCard?.cardNumber?.trim() === this.cardNumber?.trim() &&
       currentUser.account?.debitCard?.cvv === this.cvv) {
 
@@ -61,6 +66,9 @@ export class SendingMoneyModalComponent implements OnInit {
                 });
             }
           );
+          return;
+        } else {
+          this.insufficientFunds = true;
           return;
         }
 
@@ -105,6 +113,8 @@ export class SendingMoneyModalComponent implements OnInit {
           }
         }
       }
+    } else {
+      this.invalidCardInformation = true;
     }
     this.modalRef.close();
   }

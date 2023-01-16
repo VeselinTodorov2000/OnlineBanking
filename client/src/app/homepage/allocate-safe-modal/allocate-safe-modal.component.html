@@ -25,7 +25,8 @@
     <div class="allocate-to-safe-form-button">
       <button class="classic-button" (click)="allocateToSafe()">Allocate</button>
       <div class="allocate-to-safe-validations">
-        <p class="mistake" id=""><strong>Some validation</strong></p>
+        <p *ngIf="invalidCardInformation" class="mistake"><strong>Invalid card information</strong></p>
+        <p *ngIf="insufficientFunds" class="mistake"><strong>Insufficient funds</strong></p>
       </div>
     </div>
   </div>

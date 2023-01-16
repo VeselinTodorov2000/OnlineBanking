@@ -9,6 +9,7 @@ import {HttpErrorResponse} from "@angular/common/http";
 import {SafeModel} from "../models/safe.model";
 import {TransactionModel} from "../models/transaction.model";
 import {currentUser, setCurrentUser} from "../globals/globals";
+import {Title} from "@angular/platform-browser";
 
 
 @Component({
@@ -25,7 +26,8 @@ export class HomepageComponent implements OnInit {
 
   modalRef: MdbModalRef<RequestCreditModalComponent> | null = null;
 
-  constructor(private modalService: MdbModalService, private userService: OnlineBankingUserService) {
+  constructor(private modalService: MdbModalService, private userService: OnlineBankingUserService, private titleService: Title) {
+    titleService.setTitle("Home");
   }
 
   openRequestModal() {
@@ -35,10 +37,12 @@ export class HomepageComponent implements OnInit {
 
   openSendMoneyModal() {
     this.modalRef = this.modalService.open(SendingMoneyModalComponent);
+    this.ngOnInit();
   }
 
   openAllocateToSafeModal() {
-    this.modalRef = this.modalService.open(AllocateSafeModalComponent)
+    this.modalRef = this.modalService.open(AllocateSafeModalComponent);
+    this.ngOnInit();
   }
 
   ngOnInit(): void {

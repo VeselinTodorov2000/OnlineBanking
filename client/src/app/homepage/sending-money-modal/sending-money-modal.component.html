@@ -32,7 +32,8 @@
     <div class="sending-money-form-button">
       <button (click)="sendMoney()" class="classic-button">Send money</button>
       <div class="sending-money-validations">
-        <p class="mistake" id=""><strong>Some validation</strong></p>
+        <p *ngIf="insufficientFunds" class="mistake"><strong>Insufficient funds</strong></p>
+        <p *ngIf="invalidCardInformation" class="mistake"><strong>Invalid card information</strong></p>
       </div>
     </div>
   </div>
