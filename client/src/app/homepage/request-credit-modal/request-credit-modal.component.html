@@ -23,7 +23,7 @@
     <div class="credit-request-form-button">
       <button class="classic-button" (click)="makeRequest()">Request credit</button>
       <div class="credit-request-form-validations">
-        <p class="mistake" id="user exists"><strong>Some validation</strong></p>
+        <p *ngIf="invalidCardInformation" class="mistake" id="user exists"><strong>Invalid card information</strong></p>
       </div>
     </div>
   </div>

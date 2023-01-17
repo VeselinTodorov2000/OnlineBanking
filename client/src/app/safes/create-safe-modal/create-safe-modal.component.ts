@@ -10,13 +10,15 @@ import {OnlineBankingUserService} from "../../services/OnlineBankingUser.service
   templateUrl: './create-safe-modal.component.html',
   styleUrls: ['./create-safe-modal.component.css']
 })
-export class CreateSafeModalComponent implements OnInit{
+export class CreateSafeModalComponent implements OnInit {
   currentUser?: OnlinebankinguserModel;
   safeName?: string;
   safeKeygen?: string;
+  safeAlreadyExist!: boolean;
   private newSafe?: SafeModel;
 
   constructor(public modalRef: MdbModalRef<CreateSafeModalComponent>, private userService: OnlineBankingUserService) {
+    this.safeAlreadyExist = false;
   }
 
   closeModal() {
@@ -28,15 +30,21 @@ export class CreateSafeModalComponent implements OnInit{
   }
 
   createSafe() {
-    if(this.safeName == null || this.safeKeygen == null) {
+    if (this.safeName == null || this.safeKeygen == null) {
       alert("Safe name and safe keygen should not be null");
-    }
-    else {
+    } else {
       var safeToCreate: SafeModel = {
         safeName: this.safeName,
         keygen: this.safeKeygen,
         funds: 0
       };
+
+      if (currentUser.account?.safes?.map(function (safe) {
+        return safe.safeName;
+      }).includes(this.safeName)) {
+        this.safeAlreadyExist = true;
+        return;
+      }
 
       this.userService.addSafe(safeToCreate).subscribe(
         (response: SafeModel) => {
@@ -50,6 +58,7 @@ export class CreateSafeModalComponent implements OnInit{
       );
 
       this.modalRef.close("Safe created");
-    };
+    }
+    ;
   }
 }

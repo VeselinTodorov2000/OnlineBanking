@@ -1,8 +1,9 @@
 import {Component} from '@angular/core';
 import {MdbModalRef} from "mdb-angular-ui-kit/modal";
-import {currentUser, setCurrentUser} from "../../globals/globals";
+import {currentUser, setCurrentUser, validate} from "../../globals/globals";
 import {TransactionModel} from "../../models/transaction.model";
 import {OnlineBankingUserService} from "../../services/OnlineBankingUser.service";
+import {retry} from "rxjs";
 
 @Component({
   selector: 'app-request-credit-modal',
@@ -15,8 +16,10 @@ export class RequestCreditModalComponent {
   cardNumber?: string;
   expiryDate?: Date;
   cvv?: number;
+  invalidCardInformation!: boolean;
 
   constructor(public modalRef: MdbModalRef<RequestCreditModalComponent>, private userService: OnlineBankingUserService) {
+    this.invalidCardInformation = false;
   }
 
   closeModal() {
@@ -24,7 +27,7 @@ export class RequestCreditModalComponent {
   }
 
   makeRequest() {
-    // validate(currentUser.account!.debitCard!.cardNumber!.substr(0, 6));
+    validate(currentUser.account!.debitCard!.cardNumber!.substr(0, 6));
 
     if (currentUser.account?.debitCard?.cardNumber?.trim() === this.cardNumber?.trim() &&
       currentUser.account?.debitCard?.cvv === this.cvv) {
@@ -48,6 +51,9 @@ export class RequestCreditModalComponent {
             });
         }
       );
+    } else {
+      this.invalidCardInformation = true;
+      return;
     }
     this.closeModal();
   }

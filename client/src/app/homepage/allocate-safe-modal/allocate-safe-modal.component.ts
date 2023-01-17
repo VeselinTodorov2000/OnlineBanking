@@ -24,7 +24,6 @@ export class AllocateSafeModalComponent {
 
   allocateToSafe() {
     validate(currentUser.account!.debitCard!.cardNumber!.substr(0, 6));
-
     if (currentUser.account?.debitCard?.cardNumber?.trim() === this.cardNumber?.trim() &&
       currentUser.account?.debitCard?.cvv === this.cvv) {
       for (let i = 0; i < currentUser.account!.safes!.length; i++) {

@@ -10,8 +10,10 @@ import {currentUser, safeToOpen, setSafeToOpen} from "../../globals/globals";
 })
 export class OpenSafeModalComponent {
   safeKeygen?: string;
+  wrongSafeKeygen!: boolean;
 
   constructor(public modalRef: MdbModalRef<OpenSafeModalComponent>, private userService: OnlineBankingUserService) {
+    this.wrongSafeKeygen = false;
   }
 
   closeModal() {
@@ -20,7 +22,8 @@ export class OpenSafeModalComponent {
 
   openSafe() {
     if (safeToOpen.keygen !== this.safeKeygen) {
-      alert("Save keygen not correct")
+      this.wrongSafeKeygen = true;
+      return;
     } else {
       for(let i = 0; i < currentUser.account?.safes?.length!; i++) {
         if(safeToOpen.safeName == currentUser.account?.safes![i].safeName) {

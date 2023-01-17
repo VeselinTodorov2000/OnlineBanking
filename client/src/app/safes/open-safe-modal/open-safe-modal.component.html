@@ -15,7 +15,7 @@
     <div class="allocate-to-safe-form-button">
       <button class="classic-button" (click)="openSafe()">Open safe</button>
       <div class="allocate-to-safe-validations">
-        <p class="mistake" id=""><strong>Some validation</strong></p>
+        <p *ngIf="wrongSafeKeygen" class="mistake" id=""><strong>Save keygen not correct</strong></p>
       </div>
     </div>
   </div>

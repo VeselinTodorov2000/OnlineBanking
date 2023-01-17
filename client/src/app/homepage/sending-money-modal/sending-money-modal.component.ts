@@ -115,6 +115,7 @@ export class SendingMoneyModalComponent implements OnInit {
       }
     } else {
       this.invalidCardInformation = true;
+      return;
     }
     this.modalRef.close();
   }

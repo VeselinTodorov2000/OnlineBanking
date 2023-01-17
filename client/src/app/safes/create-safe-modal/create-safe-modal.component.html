@@ -16,7 +16,7 @@
     <div class="allocate-to-safe-form-button">
       <button class="classic-button" (click)="createSafe()">Create safe</button>
       <div class="allocate-to-safe-validations">
-        <p class="mistake" id=""><strong>Some validation</strong></p>
+        <p *ngIf="safeAlreadyExist" class="mistake" id=""><strong>Safe with this name already exist</strong></p>
       </div>
     </div>
   </div>
