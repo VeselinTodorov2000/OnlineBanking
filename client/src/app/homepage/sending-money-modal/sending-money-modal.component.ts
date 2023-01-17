@@ -40,7 +40,7 @@ export class SendingMoneyModalComponent implements OnInit {
     this.modalRef.close();
   }
 
-  sendMoney() : void{
+  sendMoney(): void {
     validate(currentUser.account!.debitCard!.cardNumber!.substr(0, 6));
     if (currentUser.account?.debitCard?.cardNumber?.trim() === this.cardNumber?.trim() &&
       currentUser.account?.debitCard?.cvv === this.cvv) {
@@ -71,46 +71,49 @@ export class SendingMoneyModalComponent implements OnInit {
           this.insufficientFunds = true;
           return;
         }
+      }
 
-        //regular case
-        for (var user of this.users!) {
-          console.log(user.account?.iban === this.receiverIban && currentUser.account?.funds! >= this.amount!);
-          if (user.account?.iban === this.receiverIban && currentUser.account?.funds! >= this.amount!) {
-            var transaction: TransactionModel = {
-              funds: (-1) * this.amount!,
-              issueDate: new Date(),
-              receiverIban: this.receiverIban,
-              reason: this.reason
-            };
-            var receiverTransaction: TransactionModel = {
-              funds: this.amount!,
-              issueDate: new Date(),
-              receiverIban: currentUser.account?.iban,
-              reason: this.reason
-            };
+      //regular case
+      for (var user of this.users!) {
+        if (user.account?.iban === this.receiverIban && currentUser.account?.funds! >= this.amount!) {
+          var transaction: TransactionModel = {
+            funds: (-1) * this.amount!,
+            issueDate: new Date(),
+            receiverIban: this.receiverIban,
+            reason: this.reason
+          };
 
-            this.userService.addTransaction(transaction).subscribe(
-              (response: TransactionModel) => {
-                currentUser.account?.transactions?.push(response);
-                setCurrentUser(currentUser);
-                this.userService.updateUser(currentUser).subscribe(
-                  (response: boolean) => {
-                    console.log(currentUser);
-                  });
-              }
-            );
+          var receiverTransaction: TransactionModel = {
+            funds: this.amount!,
+            issueDate: new Date(),
+            receiverIban: currentUser.account?.iban,
+            reason: this.reason
+          };
 
-            this.userService.addTransaction(receiverTransaction).subscribe(
-              (response: TransactionModel) => {
-                user.account?.transactions?.push(response);
-                this.userService.updateUser(user).subscribe(
-                  (response: boolean) => {
-                    console.log(user);
-                  });
-              }
-            );
-            break;
-          }
+          console.log(transaction);
+          console.log(receiverTransaction);
+
+          this.userService.addTransaction(transaction).subscribe(
+            (response: TransactionModel) => {
+              currentUser.account?.transactions?.push(response);
+              setCurrentUser(currentUser);
+              this.userService.updateUser(currentUser).subscribe(
+                (response: boolean) => {
+                  console.log(currentUser);
+                });
+            }
+          );
+
+          this.userService.addTransaction(receiverTransaction).subscribe(
+            (response: TransactionModel) => {
+              user.account?.transactions?.push(response);
+              this.userService.updateUser(user).subscribe(
+                (response: boolean) => {
+                  console.log(user);
+                });
+            }
+          );
+          break;
         }
       }
     } else {
